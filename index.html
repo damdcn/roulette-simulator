@@ -4,53 +4,62 @@
         <meta charset="utf-8">
         <title>Roulette en ligne</title>
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/board.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
             <button id="submit" class="submit-button">Valider</button>
             <div id="form-bet" class="form-bet">
-                <label><u>Nombre de jeton sur un chiffre (vide = 0) :</u></label>
-                <ol start="0">
-                    <li id="c0"><input type="number"></li>
-                    <li id="c1"><input type="number"></li>
-                    <li id="c2"><input type="number"></li>
-                    <li id="c3"><input type="number"></li>
-                    <li id="c4"><input type="number"></li>
-                    <li id="c5"><input type="number"></li>
-                    <li id="c6"><input type="number"></li>
-                    <li id="c7"><input type="number"></li>
-                    <li id="c8"><input type="number"></li>
-                    <li id="c9"><input type="number"></li>
-                    <li id="c10"><input type="number"></li>
-                    <li id="c11"><input type="number"></li>
-                    <li id="c12"><input type="number"></li>
-                    <li id="c13"><input type="number"></li>
-                    <li id="c14"><input type="number"></li>
-                    <li id="c15"><input type="number"></li>
-                    <li id="c16"><input type="number"></li>
-                    <li id="c17"><input type="number"></li>
-                    <li id="c18"><input type="number"></li>
-                    <li id="c19"><input type="number"></li>
-                    <li id="c20"><input type="number"></li>
-                    <li id="c21"><input type="number"></li>
-                    <li id="c22"><input type="number"></li>
-                    <li id="c23"><input type="number"></li>
-                    <li id="c24"><input type="number"></li>
-                    <li id="c25"><input type="number"></li>
-                    <li id="c26"><input type="number"></li>
-                    <li id="c27"><input type="number"></li>
-                    <li id="c28"><input type="number"></li>
-                    <li id="c29"><input type="number"></li>
-                    <li id="c30"><input type="number"></li>
-                    <li id="c31"><input type="number"></li>
-                    <li id="c32"><input type="number"></li>
-                    <li id="c33"><input type="number"></li>
-                    <li id="c34"><input type="number"></li>
-                    <li id="c35"><input type="number"></li>
-                    <li id="c36"><input type="number"></li>
-                </ol>
+                <table class="board-game">
+                    <tr>
+                        <td rowspan="3"><div class="green-case" id="c0" onclick="placeChip(this)">0</div></td>
+                        <td><div class="red-case" id="c3" onclick="placeChip(this)">3</div></td>
+                        <td><div class="black-case" id="c6" onclick="placeChip(this)">6</div></td>
+                        <td><div class="red-case" id="c9" onclick="placeChip(this)">9</div></td>
+                        <td><div class="red-case" id="c12" onclick="placeChip(this)">12</div></td>
+                        <td><div class="black-case" id="c15" onclick="placeChip(this)">15</div></td>
+                        <td><div class="red-case" id="c18" onclick="placeChip(this)">18</div></td>
+                        <td><div class="red-case" id="c21" onclick="placeChip(this)">21</div></td>
+                        <td><div class="black-case" id="c24" onclick="placeChip(this)">24</div></td>
+                        <td><div class="red-case" id="c27" onclick="placeChip(this)">27</div></td>
+                        <td><div class="red-case" id="c30" onclick="placeChip(this)">30</div></td>
+                        <td><div class="black-case" id="c33" onclick="placeChip(this)">33</div></td>
+                        <td><div class="red-case" id="c36" onclick="placeChip(this)">36</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="black-case" id="c2" onclick="placeChip(this)">2</div></td>
+                        <td><div class="red-case" id="c5" onclick="placeChip(this)">5</div></td>
+                        <td><div class="black-case" id="c8" onclick="placeChip(this)">8</div></td>
+                        <td><div class="black-case" id="c11" onclick="placeChip(this)">11</div></td>
+                        <td><div class="red-case" id="c14" onclick="placeChip(this)">14</div></td>
+                        <td><div class="black-case" id="c17" onclick="placeChip(this)">17</div></td>
+                        <td><div class="black-case" id="c20" onclick="placeChip(this)">20</div></td>
+                        <td><div class="red-case" id="c23" onclick="placeChip(this)">23</div></td>
+                        <td><div class="black-case" id="c26" onclick="placeChip(this)">26</div></td>
+                        <td><div class="black-case" id="c29" onclick="placeChip(this)">29</div></td>
+                        <td><div class="red-case" id="c32" onclick="placeChip(this)">32</div></td>
+                        <td><div class="black-case" id="c35" onclick="placeChip(this)">35</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="red-case" id="c1" onclick="placeChip(this)">1</div></td>
+                        <td><div class="black-case" id="c4" onclick="placeChip(this)">4</div></td>
+                        <td><div class="red-case" id="c7" onclick="placeChip(this)">7</div></td>
+                        <td><div class="red-case" id="c10" onclick="placeChip(this)">10</div></td>
+                        <td><div class="black-case" id="c13" onclick="placeChip(this)">13</div></td>
+                        <td><div class="red-case" id="c16" onclick="placeChip(this)">16</div></td>
+                        <td><div class="red-case" id="c19" onclick="placeChip(this)">19</div></td>
+                        <td><div class="black-case" id="c22" onclick="placeChip(this)">22</div></td>
+                        <td><div class="red-case" id="c25" onclick="placeChip(this)">25</div></td>
+                        <td><div class="red-case" id="c28" onclick="placeChip(this)">28</div></td>
+                        <td><div class="black-case" id="c31" onclick="placeChip(this)">31</div></td>
+                        <td><div class="red-case" id="c34" onclick="placeChip(this)">34</div></td>
+                    </tr>
+                </table>
                 <div class="infobet">
+                    <label><u>Remise à zéro :</u></label>
+                    <button id="reset-button">Reset</button>
+                    <br>
                     <label><u>Valeur d'un jeton :</u></label>
                     <select id="val-jeton">
                         <option>0.50</option>
@@ -71,8 +80,12 @@
                     <br>
                 </div>
             </div>
-            <div id="res-sum" class="res-sum"></div>
+            <div class="res-infos" id="res-infos">
+                <div class="actual-bet" id="actual-bet"></div>
+                <div id="res-sum" class="res-sum"></div>                
+            </div>
             <div id="res-detail" class="res-detail"></div>
+            
         </div>
         <script src="js/scripts.js"></script>
     </body>
