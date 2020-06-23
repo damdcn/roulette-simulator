@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+}
+
+.form-bet {
+    margin: 30px;
+}
+
+.submit-button {
+    margin: 10px;
+}
+
+.res-sum, .res-detail {
+    margin: 30px;
+    overflow: auto;
+}

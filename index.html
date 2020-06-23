@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Roulette en ligne</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <button id="submit" class="submit-button">Valider</button>
+            <div id="form-bet" class="form-bet">
+                <label><u>Nombre de jeton sur un chiffre (vide = 0) :</u></label>
+                <ol start="0">
+                    <li id="c0"><input type="number"></li>
+                    <li id="c1"><input type="number"></li>
+                    <li id="c2"><input type="number"></li>
+                    <li id="c3"><input type="number"></li>
+                    <li id="c4"><input type="number"></li>
+                    <li id="c5"><input type="number"></li>
+                    <li id="c6"><input type="number"></li>
+                    <li id="c7"><input type="number"></li>
+                    <li id="c8"><input type="number"></li>
+                    <li id="c9"><input type="number"></li>
+                    <li id="c10"><input type="number"></li>
+                    <li id="c11"><input type="number"></li>
+                    <li id="c12"><input type="number"></li>
+                    <li id="c13"><input type="number"></li>
+                    <li id="c14"><input type="number"></li>
+                    <li id="c15"><input type="number"></li>
+                    <li id="c16"><input type="number"></li>
+                    <li id="c17"><input type="number"></li>
+                    <li id="c18"><input type="number"></li>
+                    <li id="c19"><input type="number"></li>
+                    <li id="c20"><input type="number"></li>
+                    <li id="c21"><input type="number"></li>
+                    <li id="c22"><input type="number"></li>
+                    <li id="c23"><input type="number"></li>
+                    <li id="c24"><input type="number"></li>
+                    <li id="c25"><input type="number"></li>
+                    <li id="c26"><input type="number"></li>
+                    <li id="c27"><input type="number"></li>
+                    <li id="c28"><input type="number"></li>
+                    <li id="c29"><input type="number"></li>
+                    <li id="c30"><input type="number"></li>
+                    <li id="c31"><input type="number"></li>
+                    <li id="c32"><input type="number"></li>
+                    <li id="c33"><input type="number"></li>
+                    <li id="c34"><input type="number"></li>
+                    <li id="c35"><input type="number"></li>
+                    <li id="c36"><input type="number"></li>
+                </ol>
+                <div class="infobet">
+                    <label><u>Valeur d'un jeton :</u></label>
+                    <select id="val-jeton">
+                        <option>0.50</option>
+                        <option>1.00</option>
+                        <option>2.00</option>
+                        <option>5.00</option>
+                        <option>10.00</option>
+                        <option>25.00</option>
+                        <option>50.00</option>
+                        <option>100.00</option>
+                    </select>
+                    <br>
+                    <label><u>Nombre de tirage :</u></label>
+                    <input id="nb-tirage" type="number">
+                    <br>
+                    <label><u>Porte-feuille de départ :</u></label>
+                    <input id="balance-depart" type="number">
+                    <br>
+                </div>
+            </div>
+            <div id="res-sum" class="res-sum"></div>
+            <div id="res-detail" class="res-detail"></div>
+        </div>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
