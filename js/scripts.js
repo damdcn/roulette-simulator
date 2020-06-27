@@ -11,6 +11,7 @@ var maxLooseSuit = 0;          // suite perdante la plus longue
 var resSum = "";
 var resDetail = "";
 var actualBet = "";
+var dataSet = new Array();
 
 
 function clearValues(){
@@ -27,6 +28,7 @@ function clearValues(){
     actualBet = "";
     resSum = "";
     resDetail = "";
+    dataSet = new Array();
 }
 
 function setWalletStart(n){
@@ -77,6 +79,9 @@ $('#submit').on('click', function(){
     }
     while(document.getElementById('res-detail').firstChild){
         document.getElementById('res-detail').removeChild(document.getElementById('res-detail').firstChild);
+    }
+    while(document.getElementById('chart').firstChild){
+        document.getElementById('chart').removeChild(document.getElementById('chart').firstChild);
     }
     while(document.getElementById('actual-bet').firstChild){
         document.getElementById('actual-bet').removeChild(document.getElementById('actual-bet').firstChild);
@@ -129,7 +134,7 @@ $('#submit').on('click', function(){
                 nbPartie++;
                 resDetail += "<label>Wallet fin partie = "+(wallet+gain)+"</label><br>";
                 resDetail += "</div>";
-                
+                dataSet.push(wallet+gain);
             }
         }
         
@@ -141,6 +146,12 @@ $('#submit').on('click', function(){
         resSum += "<label>Wallet max pendant la game : "+maxWallet+"€</label><br>";
         resSum += "<label>Suite perdante la plus longue : "+maxLooseSuit+"</label><br>";
         resSum += "<label>Wallet fin de partie : "+total+"€</label><br>";
+
+        //dataSet.push(total-walletStart);
+
+        // Création du graphique
+        var ctx = document.getElementById('chart').getContext('2d');
+        var Chart = initChart(ctx, nbTirage, dataSet);
     } else {
         resSum += "<br><br><label>Vous devez : <ul><li>Mise sur au moins un nombre</li><li>Définir le nombre de tirage</li><li>Définir la balance de départ</li></ul></label><br>";
     }
@@ -148,7 +159,8 @@ $('#submit').on('click', function(){
     $('#actual-bet').append(actualBet);
     $('#res-sum').append(resSum);
     $('#res-detail').append(resDetail);
-    
+
+    // Surlignage des parties gagnées
     setTimeout(function(){
         for(j=0;j<successRound.length;j++){
             document.getElementById('p'+successRound[j]).style.backgroundColor = "#9cffaa";

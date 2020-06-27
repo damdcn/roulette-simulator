@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/board.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </head>
     <body>
         <div class="container">
@@ -82,11 +83,16 @@
             </div>
             <div class="res-infos" id="res-infos">
                 <div class="actual-bet" id="actual-bet"></div>
-                <div id="res-sum" class="res-sum"></div>                
+                <div id="res-sum" class="res-sum"></div>
+                <div class="break"></div>
+                <div class="res-chart">
+                    <canvas id="chart"></canvas>
+                </div>
             </div>
             <div id="res-detail" class="res-detail"></div>
             
         </div>
+        <script src="js/chartConfig.js"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>
