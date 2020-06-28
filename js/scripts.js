@@ -31,6 +31,21 @@ function clearValues(){
     dataSet = new Array();
 }
 
+function resetRes(){
+    while(document.getElementById('res-sum').firstChild){
+        document.getElementById('res-sum').removeChild(document.getElementById('res-sum').firstChild);
+    }
+    while(document.getElementById('res-detail').firstChild){
+        document.getElementById('res-detail').removeChild(document.getElementById('res-detail').firstChild);
+    }
+    while(document.getElementById('res-chart').firstChild){
+        document.getElementById('res-chart').removeChild(document.getElementById('res-chart').firstChild);
+    }
+    while(document.getElementById('actual-bet').firstChild){
+        document.getElementById('actual-bet').removeChild(document.getElementById('actual-bet').firstChild);
+    }
+}
+
 function setWalletStart(n){
     walletStart = n;
     wallet = n;
@@ -65,6 +80,10 @@ function gameResult(res, mise, wonLastGame) { // fonction qui renvoie le resulta
     return isWin;
 }
 
+
+/*
+ * SUBMIT
+ */
 $('#submit').on('click', function(){
     clearValues();
     let wonLastGame = true;
@@ -74,18 +93,7 @@ $('#submit').on('click', function(){
     setWalletStart($('#balance-depart').val());
     let successRound = new Array();
     let valJeton = $('#val-jeton').val();
-    while(document.getElementById('res-sum').firstChild){
-        document.getElementById('res-sum').removeChild(document.getElementById('res-sum').firstChild);
-    }
-    while(document.getElementById('res-detail').firstChild){
-        document.getElementById('res-detail').removeChild(document.getElementById('res-detail').firstChild);
-    }
-    while(document.getElementById('chart').firstChild){
-        document.getElementById('chart').removeChild(document.getElementById('chart').firstChild);
-    }
-    while(document.getElementById('actual-bet').firstChild){
-        document.getElementById('actual-bet').removeChild(document.getElementById('actual-bet').firstChild);
-    }
+    resetRes();
 
     for(let i=0;i<=36;i++){
         misePlateau[i] = 0.0;
@@ -108,7 +116,8 @@ $('#submit').on('click', function(){
             resDetail += "<label>-------------------------------------------</label><br>";
             resDetail += "<div id=p"+(i+1)+" class=p"+(i+1)+">";			
             resDetail += "<label>"+(i+1)+"ème partie</label><br><br>";			
-            resDetail += "<label>Wallet debut partie = "+(wallet+gain)+"</label><br>";
+            if(gain==0) resDetail += "<label>Wallet debut partie = "+wallet+"</label><br>";
+            else resDetail += "<label>Wallet debut partie = "+wallet+gain+"</label><br>";
         
             if((wallet+gain)>=mise) {
                 play = true;			
@@ -150,7 +159,11 @@ $('#submit').on('click', function(){
         //dataSet.push(total-walletStart);
 
         // Création du graphique
-        var ctx = document.getElementById('chart').getContext('2d');
+        //document.getElementById('res-chart').appendChild(nodeChart);
+        var canvas = document.createElement('canvas');
+        canvas.setAttribute("id", "chart");
+        document.getElementById('res-chart').appendChild(canvas);
+        var ctx = document.getElementById('chart');
         var Chart = initChart(ctx, nbTirage, dataSet);
     } else {
         resSum += "<br><br><label>Vous devez : <ul><li>Mise sur au moins un nombre</li><li>Définir le nombre de tirage</li><li>Définir la balance de départ</li></ul></label><br>";
@@ -169,20 +182,20 @@ $('#submit').on('click', function(){
     }, 100);
 });
 
+
+/*
+ * RESET
+ */
 $('#reset-button').on('click', function(){
     clearValues();
-    while(document.getElementById('res-sum').firstChild){
-        document.getElementById('res-sum').removeChild(document.getElementById('res-sum').firstChild);
-    }
-    while(document.getElementById('res-detail').firstChild){
-        document.getElementById('res-detail').removeChild(document.getElementById('res-detail').firstChild);
-    }
-    while(document.getElementById('actual-bet').firstChild){
-        document.getElementById('actual-bet').removeChild(document.getElementById('actual-bet').firstChild);
-    }
+    resetRes();
     $('.chip').remove();
 });
 
+
+/*
+ * SET JETON
+ */
 function placeChip(e){ // place un jeton sur la case e
     let c = e.id.substr(1); // numéro de la case
     var chipElement = '<div class="chip" id="chip'+c+'">1</div>';
