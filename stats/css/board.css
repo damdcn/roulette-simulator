@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: rgb(0, 87, 0);
+}
+
+.container {
+
+}
+
+.board-game {
+    table-layout: fixed;
+    width: 770px;
+    overflow: auto;
+    margin-bottom: 30px;
+}
+
+table, tr, td {
+    border: 3px solid black;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+td:hover .green-case, td:hover .red-case, td:hover .black-case {
+    background-color: rgb(176, 218, 255);
+    color: black;
+}
+
+td:hover .chip {
+    color: white;
+}
+
+.green-case, .red-case, .black-case {
+    cursor: pointer;
+    border-radius: 25px;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    display: table-cell;
+    width: 50px;
+    height: 50px;
+}
+
+.green-case {
+    background-color: rgb(60, 165, 0);
+}
+
+.red-case {
+    background-color: rgb(204, 0, 0);
+}
+
+.black-case {
+    background-color: rgb(0, 0, 0);
+}
+
+.chip {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -6px;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    width:30px;
+    height:30px;
+    background:rgb(83, 83, 83);
+    border-radius:50%;
+    border:4px dashed white;
+}
