@@ -117,7 +117,7 @@ $('#submit').on('click', function(){
             resDetail += "<div id=p"+(i+1)+" class=p"+(i+1)+">";			
             resDetail += "<label>"+(i+1)+"ème partie</label><br><br>";			
             if(gain==0) resDetail += "<label>Wallet debut partie = "+wallet+"</label><br>";
-            else resDetail += "<label>Wallet debut partie = "+wallet+gain+"</label><br>";
+            else resDetail += "<label>Wallet debut partie = "+(wallet+gain)+"</label><br>";
         
             if((wallet+gain)>=mise) {
                 play = true;			
